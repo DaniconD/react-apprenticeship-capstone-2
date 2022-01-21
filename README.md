@@ -14,19 +14,20 @@ We recommend you consider the following elements that should contain the app:
 - Main section with the image
 
 **Requisites**
+
 - Don't use UI Libraries. You have to build your styles. You can use styled-components such as SASS, LESS, or CSS. You are free to use the approach that makes sense to you.
 - Fetch API Calls from the `NASA APOD` using your API KEY.
-- Publish your app using free services such as Github pages, Netflify, or Heroku. 
+- Publish your app using free services such as Github pages, Netflify, or Heroku.
 - Share the URL on the PR.
 - Use the React Testing Library and Jest tools to add tests.
 - Use functional components and React Hooks as possible.
 
 ### Completing the Challenge
+
 Follow these steps to complete this challenge:
+
 1. Create a new branch with the name **challenge-2** from this repository.
 1. Complete all the Acceptance Criteria (AC).
-
-
 
 ## Resources.
 
@@ -35,12 +36,12 @@ Follow these steps to complete this challenge:
 ## Acceptance Criteria (AC) and Score
 
 | Acceptance Criteria | Description                                                                                                                               | Points for Completed | Points for Automated |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------------------|----------------------|
-| 1               | When the user enters the app, the app should show the Picture of the Day.                                                                 | 10                   | 10                   |
-| 2              | When the user selects a specific date with the format YYYY-MM-DD, the app should show the picture of the day for the given date.          | 20                   | n/a                  |
-| 3               | The app should be responsive.                                                                                                             | 20                   | n/a                  |
-| 4              | When the app fetches the API, and there is an unexpected error, the app should show a message: "There was an error, please try again."    | 20                   | n/a                  |
-| 5               | When the user selects an invalid date value and clicks on the **show** button, the app should show a message error from the API response. | 20                   | n/a                  |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------- |
+| 1                   | When the user enters the app, the app should show the Picture of the Day.                                                                 | 10                   | 10                   |
+| 2                   | When the user selects a specific date with the format YYYY-MM-DD, the app should show the picture of the day for the given date.          | 20                   | n/a                  |
+| 3                   | The app should be responsive.                                                                                                             | 20                   | n/a                  |
+| 4                   | When the app fetches the API, and there is an unexpected error, the app should show a message: "There was an error, please try again."    | 20                   | n/a                  |
+| 5                   | When the user selects an invalid date value and clicks on the **show** button, the app should show a message error from the API response. | 20                   | n/a                  |
 
 ### Bonus
 
@@ -53,7 +54,9 @@ The bonus is a plus that helps us know you better and increments your final scor
 - The app is responsive: `20` points.
 
 #### Submitting the deliverables
+
 For submitting your work, you should follow these steps:
+
 1. Fill [the form](https://forms.gle/7Jz2uXMFYXfcU2428) to submit your project
 2. Projects must be forked from the [baseline repo](https://github.com/wizelineacademy/react-apprenticeship-capstone-2)
 3. Please make sure that your forked repo is public
