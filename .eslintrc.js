@@ -4,7 +4,11 @@ module.exports = {
     es6: true,
     jest: true,
   },
-  extends: ["airbnb", "airbnb/hooks"],
+  extends: [
+  'eslint:recommended',
+  'plugin:react/recommended',
+  'plugin:prettier/recommended',]
+  ,
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
@@ -22,5 +26,6 @@ module.exports = {
       version: "detect",
     },
   },
-  rules: {},
+  rules: {
+  },
 };
