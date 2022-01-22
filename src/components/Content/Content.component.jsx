@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useFetch from '../../hooks/useFetch';
 
 function Content() {
-  const [data, isLoaded, error] = useFetch('');
+  const [date, setDate] = useState('');
+  const [data, isLoaded, error] = useFetch(date);
+  if (date === '') {
+    return (
+      <ul>
+        <div>Pic a date</div>
+        <input type="date" onChange={(e) => setDate(e.target.value)}></input>
+      </ul>
+    );
+  }
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -10,8 +19,10 @@ function Content() {
   } else {
     return (
       <ul>
-        <p>{data.explanation}</p>
+        <input type="date" onChange={(e) => setDate(e.target.value)}></input>
+        <p>{date}</p>
         <img src={data.url} alt="image" />
+        <p>{data.explanation}</p>
       </ul>
     );
   }

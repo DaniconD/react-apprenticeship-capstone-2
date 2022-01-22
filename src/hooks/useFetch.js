@@ -6,7 +6,7 @@ function useFetch(text) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=${KEY}`)
+    fetch(`https://api.nasa.gov/planetary/apod?date=${text}&api_key=${KEY}`)
       .then((res) => res.json())
       .then(
         (result) => {
