@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useFetch from '../../hooks/useFetch';
+import NoImage from '../../resources/img/image-not-available.png';
 
 function Content() {
   const [date, setDate] = useState('');
@@ -7,22 +8,40 @@ function Content() {
   if (date === '') {
     return (
       <ul>
-        <div>Pic a date</div>
+        <h2>Pic a date</h2>
         <input type="date" onChange={(e) => setDate(e.target.value)}></input>
       </ul>
     );
   }
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <div>
+        <h3>There was an error, please try again.</h3>
+        Error: {error.message}
+      </div>
+    );
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
     return (
       <ul>
+        <h2>Pic a date</h2>
         <input type="date" onChange={(e) => setDate(e.target.value)}></input>
         <p>{date}</p>
-        <img src={data.url} alt="image" />
+        <div className="image-container">
+          <img
+            src={
+              data.thumbnail_url
+                ? data.thumbnail_url
+                : data.url
+                ? data.url
+                : NoImage
+            }
+            alt="image"
+          />
+        </div>
         <p>{data.explanation}</p>
+        <p>{data.msg}</p>
       </ul>
     );
   }
