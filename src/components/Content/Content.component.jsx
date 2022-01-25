@@ -17,14 +17,33 @@ function Content() {
       <Container>
         <h2>Pic a Date</h2>
         <input type="date" onChange={(e) => setDate(e.target.value)}></input>
+        <ImageContainer>
+          <Image
+            src={
+              data.thumbnail_url
+                ? data.thumbnail_url
+                : data.url
+                ? data.url
+                : NoImage
+            }
+            alt="image"
+          />
+        </ImageContainer>
+        <p>{data.explanation}</p>
+        <p>{data.msg}</p>
       </Container>
     );
   }
   if (error) {
     return (
       <Container>
+        <h2>Pic a Date</h2>
+        <input type="date" onChange={(e) => setDate(e.target.value)}></input>
         <h3>There was an error, please try again.</h3>
         Error: {error.message}
+        <ImageContainer>
+          <Image src={NoImage} alt="image" />
+        </ImageContainer>
       </Container>
     );
   } else if (!isLoaded) {
