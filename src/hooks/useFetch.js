@@ -7,26 +7,13 @@ function useFetch(date) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState([]);
   useEffect(() => {
-    // fetch(
-    //   `https://api.nasa.gov/planetary/apod?date=${date}&thumbs=true&api_key=${KEY}`
-    // )
-    //   .then((res) => res.json())
-    //   .then(
-    //     (result) => {
-    //       setIsLoaded(true);
-    //       setData(result);
-    //     },
-    //     (error) => {
-    //       setIsLoaded(true);
-    //       setError(error);
-    //     }
-    //   );
     axios
       .get(
         `https://api.nasa.gov/planetary/apod?date=${date}&thumbs=true&api_key=${KEY}`
       )
       .then((result) => {
         setIsLoaded(true);
+        setError(null);
         setData(result.data);
       })
       .catch((error) => {

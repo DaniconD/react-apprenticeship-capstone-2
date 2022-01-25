@@ -28,9 +28,9 @@ function Content() {
             }
             alt="image"
           />
+          <p>{data.msg}</p>
         </ImageContainer>
         <p>{data.explanation}</p>
-        <p>{data.msg}</p>
       </Container>
     );
   }
@@ -41,6 +41,7 @@ function Content() {
         <input type="date" onChange={(e) => setDate(e.target.value)}></input>
         <h3>There was an error, please try again.</h3>
         Error: {error.message}
+        <p>{data.msg}</p>
         <ImageContainer>
           <Image src={NoImage} alt="image" />
         </ImageContainer>
@@ -53,6 +54,7 @@ function Content() {
       <Container>
         <h2>Pic a Date</h2>
         <input type="date" onChange={(e) => setDate(e.target.value)}></input>
+        <p>{data.msg}</p>
         <ImageContainer>
           <Image
             src={
@@ -66,7 +68,6 @@ function Content() {
           />
         </ImageContainer>
         <p>{data.explanation}</p>
-        <p>{data.msg}</p>
       </Container>
     );
   }
