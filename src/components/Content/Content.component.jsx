@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import useFetch from '../../hooks/useFetch';
+import {
+  Container,
+  Image,
+  ImageContainer,
+} from '../StyledComponents/StyledComponentsList';
+
+import '../StyledComponents/StyledComponentsList';
 import NoImage from '../../resources/img/image-not-available.png';
 
 function Content() {
@@ -7,29 +14,28 @@ function Content() {
   const [data, isLoaded, error] = useFetch(date);
   if (date === '') {
     return (
-      <ul>
-        <h2>Pic a date</h2>
+      <Container>
+        <h2>Pic a Date</h2>
         <input type="date" onChange={(e) => setDate(e.target.value)}></input>
-      </ul>
+      </Container>
     );
   }
   if (error) {
     return (
-      <div>
+      <Container>
         <h3>There was an error, please try again.</h3>
         Error: {error.message}
-      </div>
+      </Container>
     );
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <Container>Loading...</Container>;
   } else {
     return (
-      <ul>
-        <h2>Pic a date</h2>
+      <Container>
+        <h2>Pic a Date</h2>
         <input type="date" onChange={(e) => setDate(e.target.value)}></input>
-        <p>{date}</p>
-        <div className="image-container">
-          <img
+        <ImageContainer>
+          <Image
             src={
               data.thumbnail_url
                 ? data.thumbnail_url
@@ -39,10 +45,10 @@ function Content() {
             }
             alt="image"
           />
-        </div>
+        </ImageContainer>
         <p>{data.explanation}</p>
         <p>{data.msg}</p>
-      </ul>
+      </Container>
     );
   }
 }
