@@ -1,60 +1,34 @@
 import React, { useState } from 'react';
-import useFetch from '../../hooks/useFetch';
+import useAxios from '../../hooks/useAxios';
 import {
   Container,
+  DisplayContainer,
   Image,
   ImageContainer,
 } from '../StyledComponents/StyledComponentsList';
 
-import '../StyledComponents/StyledComponentsList';
+// import '../StyledComponents/StyledComponentsList';
 import NoImage from '../../resources/img/image-not-available.png';
 
 function Content() {
   const [date, setDate] = useState('');
-  const [data, isLoaded, error] = useFetch(date);
-  if (date === '') {
+  const [data, isLoaded, error] = useAxios(date);
+
+  const DisplayError = () => {
     return (
-      <Container>
-        <h2>Pic a Date</h2>
-        <input type="date" onChange={(e) => setDate(e.target.value)}></input>
-        <ImageContainer>
-          <Image
-            src={
-              data.thumbnail_url
-                ? data.thumbnail_url
-                : data.url
-                ? data.url
-                : NoImage
-            }
-            alt="image"
-          />
-          <p>{data.msg}</p>
-        </ImageContainer>
-        <p>{data.explanation}</p>
-      </Container>
-    );
-  }
-  if (error) {
-    return (
-      <Container>
-        <h2>Pic a Date</h2>
-        <input type="date" onChange={(e) => setDate(e.target.value)}></input>
-        <h3>There was an error, please try again.</h3>
+      <DisplayContainer>
+        <br />
         Error: {error.message}
-        <p>{data.msg}</p>
         <ImageContainer>
           <Image src={NoImage} alt="image" />
         </ImageContainer>
-      </Container>
+      </DisplayContainer>
     );
-  } else if (!isLoaded) {
-    return <Container>Loading...</Container>;
-  } else {
+  };
+
+  const DisplayImage = () => {
     return (
-      <Container>
-        <h2>Pic a Date</h2>
-        <input type="date" onChange={(e) => setDate(e.target.value)}></input>
-        <p>{data.msg}</p>
+      <DisplayContainer>
         <ImageContainer>
           <Image
             src={
@@ -68,9 +42,17 @@ function Content() {
           />
         </ImageContainer>
         <p>{data.explanation}</p>
-      </Container>
+      </DisplayContainer>
     );
-  }
+  };
+
+  return (
+    <Container>
+      <h2>Pick a Date</h2>
+      <input type="date" onChange={(e) => setDate(e.target.value)}></input>
+      {error ? <DisplayError /> : !isLoaded ? 'Loading...' : <DisplayImage />}
+    </Container>
+  );
 }
 
 export default Content;

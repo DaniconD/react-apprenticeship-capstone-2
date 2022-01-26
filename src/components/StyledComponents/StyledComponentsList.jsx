@@ -20,6 +20,14 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   align-content: flex-start;
+  width: 100%;
+`;
+
+export const DisplayContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: flex-start;
   width: 80%;
   margin: 0 10%;
 `;
